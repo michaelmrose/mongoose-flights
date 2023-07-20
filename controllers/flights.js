@@ -22,6 +22,11 @@ async function createFlight(req,res){
     }
 }
 
+async function showFlight(req,res){
+    const flight = await Flight.findById(req.params.id)
+    res.render("flights/show", {title: "Flight Details", flight: flight})
+}
+
 function newFlight(req,res){
     res.render("flights/new", {title: "Add Flight"})
 }
@@ -29,5 +34,6 @@ function newFlight(req,res){
 module.exports = {
     index,
     create: createFlight,
+    show: showFlight,
     new: newFlight,
 }

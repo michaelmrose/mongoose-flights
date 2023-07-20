@@ -4,9 +4,11 @@
     <li>
         <%=flight.airline%>
         #<%=flight.flightNo%>
-        Departs from <%=flight.airport%>
-        on <%=flight.departs.toLocaleDateString()%>
-        Arrives at <%=flight.destinations[0].destAirport%> on <%=flight.destinations[0].arrival.toLocaleDateString()%>
+        From <%=flight.airport%>
+        <!-- on <%=flight.departs.toLocaleDateString()%> -->
+        To <%=flight.destinations[0].destAirport%>
+         <!-- on <%=flight.destinations[0].arrival.toLocaleDateString()%> -->
+        <a href="/flights/<%=flight._id%>">Details</a>
         </li>
 <%})%>
 <p>

@@ -1,0 +1,8 @@
+<%-include("../partials/header.ejs")%>
+        <%=flight.airline%>
+        #<%=flight.flightNo%>
+        Departs from <%=flight.airport%>
+        on <%=flight.departs.toLocaleDateString()%>
+        Arrives at <%=flight.destinations[0].destAirport%> on <%=flight.destinations[0].arrival.toLocaleDateString()%>
+<%-include("../partials/footer.ejs")%>
+
