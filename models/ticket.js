@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const Flight = require('./flight')
 
 const ticketSchema = new Schema({
 price: {
