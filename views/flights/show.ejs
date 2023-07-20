@@ -1,8 +1,16 @@
 <%-include("../partials/header.ejs")%>
+    <p>
         <%=flight.airline%>
         #<%=flight.flightNo%>
+    </p>
+    <p>
         Departs from <%=flight.airport%>
         on <%=flight.departs.toLocaleDateString()%>
-        Arrives at <%=flight.destinations[0].destAirport%> on <%=flight.destinations[0].arrival.toLocaleDateString()%>
+    </p>
+    <%flight.destinations.forEach((dest)=>{ %>
+    <p>
+        Arrives at <%=dest.destAirport%> on <%=dest.arrival.toLocaleDateString()%>
+    </p>
+    <%})%>
 <%-include("../partials/footer.ejs")%>
 

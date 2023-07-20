@@ -6,7 +6,9 @@
         #<%=flight.flightNo%>
         From <%=flight.airport%>
         <!-- on <%=flight.departs.toLocaleDateString()%> -->
-        To <%=flight.destinations[0].destAirport%>
+        Itinerary:  <%flight.destinations.forEach((dest)=>{ %>
+                <%=dest.destAirport%>
+        <%})%>
          <!-- on <%=flight.destinations[0].arrival.toLocaleDateString()%> -->
         <a href="/flights/<%=flight._id%>">Details</a>
         </li>
