@@ -18,3 +18,20 @@ a:hover {
 nav {
   font-size: 45px;
 }
+input#flightNoInput {
+  width: 80px;
+}
+button {
+  width: 100px;
+  border-radius: 5px;
+  padding: 8px;
+  color: white;
+  background-color:black;
+}
+li {
+  padding: 10px;
+}
+button.defaultButton {
+  color: white;
+  background-color:blueviolet;
+}

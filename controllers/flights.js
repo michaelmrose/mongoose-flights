@@ -21,14 +21,16 @@ async function createFlight(req,res){
             title: `Failed to Add a Flight: ${err.message}`, })
     }
 }
-
+function today(){
+    return new Date().toISOString().slice(0,10);
+}
 async function showFlight(req,res){
     const flight = await Flight.findById(req.params.id)
-    res.render("flights/show", {title: "Flight Details", flight: flight, id: req.params.id})
+    res.render("flights/show", {title: "Flight Details", flight: flight, id: req.params.id, today: today()})
 }
 
 function newFlight(req,res){
-    res.render("flights/new", {title: "Add Flight"})
+    res.render("flights/new", {title: "Add Flight", today: today()})
 }
 
 async function addDestination(req,res){

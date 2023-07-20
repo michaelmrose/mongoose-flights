@@ -1,5 +1,6 @@
 <%-include("../partials/header.ejs")%>
 <form action="/flights" method="POST">
+<p>
 <label for="airlineSelect">Airline</label>
 <select id="airlineSelect" name="airline">
         <option value="American">American</option>
@@ -22,12 +23,16 @@
         <option value="LAX">LAX</option>
         <option value="SAN">SAN</option>
 </select>
-<label>Flight Number</label>
-<input type="number" name="flightNo"></input>
-<label>Departing</label>
-<input id="datePicker" type="date" name="arrival"></input>
-<label>Arriving</label>
-<input id="datePicker" type="date" name="departs"></input>
-<button type="submit">Save</button>
+<label for="flightNoInput">Flight Number</label>
+<input id="flightNoInput" type="number" name="flightNo" min="10" max="9999" placeholder="10-9999"></input>
+</p>
+<p>
+<label for="arrivalInput">Departing</label>
+<input id="arrivalInput" type="date" name="arrival" value="<%=today%>"></input>
+<label for="departsInput">Arriving</label>
+<input id="departsInput" type="date" name="departs" value="<%=today%>"></input>
+<button id=addStopButton> Add Stop</button>
+</p>
+<button class=defaultButton type="submit">Save</button>
 </form>
 <%-include("../partials/footer.ejs")%>
