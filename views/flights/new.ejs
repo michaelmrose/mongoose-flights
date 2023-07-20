@@ -1,7 +1,23 @@
 <%-include("../partials/header.ejs")%>
-<form action="flights/new" method="POST">
-<label>Airline</label>
-<input name>
+<form action="/flights" method="POST">
+<label for="airlineSelect">Airline</label>
+<select id="airlineSelect" name="airline">
+        <option value="American">American</option>
+        <option value="Southwest">Southwest</option>
+        <option value="United">United</option>
+</select>
+<label for="airportSelect">Airport</label>
+<select id="airportSelect" name="airport">
+        <option value="DEN">DEN</option>
+        <option value="AUS">AUS</option>
+        <option value="DFW">DFW</option>
+        <option value="LAX">LAX</option>
+        <option value="SAN">SAN</option>
+</select>
+<label>Flight Number</label>
+<input type="number" name="flightNo"></input>
+<label>Date</label>
+<input type="date" name="departs"></input>
 <button type="submit">Save</button>
 </form>
 <%-include("../partials/footer.ejs")%>

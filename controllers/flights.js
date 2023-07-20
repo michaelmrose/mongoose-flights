@@ -11,12 +11,12 @@ async function createFlight(req,res){
     }
     try {
         const flight = await Flight.create(req.body)
+        req.body.flight
         res.redirect('flights')
     } catch(err){
-        console.log(err)
-        res.render('/flights/new', {
-            title: "Failed to Add a Flight",
-            errorMessage: err.errorMessage})
+        console.log(err.message)
+        res.render('flights/new', {
+            title: `Failed to Add a Flight: ${err.message}`, })
     }
 }
 
