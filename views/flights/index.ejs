@@ -1,2 +1,12 @@
 <%-include("../partials/header.ejs")%>
+<ul>
+<% flights.forEach((flight)=>{ %>
+    <li>
+        <%=flight.airline%>
+        #<%=flight.flightNo%>
+        Departs from <%=flight.airport%>
+        on <%=flight.departs.toLocaleDateString()%>
+        </li>
+<%})%>
+</ul>
 <%-include("../partials/footer.ejs")%>
