@@ -24,11 +24,30 @@ async function createFlight(req,res){
 
 async function showFlight(req,res){
     const flight = await Flight.findById(req.params.id)
-    res.render("flights/show", {title: "Flight Details", flight: flight})
+    res.render("flights/show", {title: "Flight Details", flight: flight, id: req.params.id})
 }
 
 function newFlight(req,res){
     res.render("flights/new", {title: "Add Flight"})
+}
+
+async function addDestination(req,res){
+    for (let key in req.body){
+        if (req.body[key] === '') delete req.body.key
+    }
+    try {
+    const flight = await Flight.findById(req.params.id)
+    await flight.destinations.push({destAirport: req.body.destAirport, arrival: req.body.arrival })
+    flight.save()
+    res.redirect(`/flights/${req.params.id}`)
+    } catch(err){
+        console.log(err.message)
+        res.render('flights/new', {
+            title: `Failed to Add a Flight: ${err.message}`, })
+
+    }
+
+    
 }
 
 module.exports = {
@@ -36,4 +55,5 @@ module.exports = {
     create: createFlight,
     show: showFlight,
     new: newFlight,
+    addDestination
 }

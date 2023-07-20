@@ -12,5 +12,18 @@
         Arrives at <%=dest.destAirport%> on <%=dest.arrival.toLocaleDateString()%>
     </p>
     <%})%>
+
+    <form action="<%=`/flights/${id}/destinations/add`%>" method="POST">
+        <label for="toAirportSelect">To</label>
+        <select id="toAirportSelect" name="destAirport">
+                <option value="DEN">DEN</option>
+                <option value="AUS">AUS</option>
+                <option value="DFW">DFW</option>
+                <option value="LAX">LAX</option>
+                <option value="SAN">SAN</option>
+        </select>
+        <input type="date" name="arrival"></input>
+        <button type="submit">Add</button>
+    </form>
 <%-include("../partials/footer.ejs")%>
 
