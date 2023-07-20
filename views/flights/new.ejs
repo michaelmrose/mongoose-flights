@@ -6,8 +6,16 @@
         <option value="Southwest">Southwest</option>
         <option value="United">United</option>
 </select>
-<label for="airportSelect">Airport</label>
-<select id="airportSelect" name="airport">
+<label for="fromAirportSelect">From</label>
+<select id="fromAirportSelect" name="airport">
+        <option value="DEN">DEN</option>
+        <option value="AUS">AUS</option>
+        <option value="DFW">DFW</option>
+        <option value="LAX">LAX</option>
+        <option value="SAN">SAN</option>
+</select>
+<label for="toAirportSelect">To</label>
+<select id="toAirportSelect" name="destAirport">
         <option value="DEN">DEN</option>
         <option value="AUS">AUS</option>
         <option value="DFW">DFW</option>
@@ -16,7 +24,9 @@
 </select>
 <label>Flight Number</label>
 <input type="number" name="flightNo"></input>
-<label>Date</label>
+<label>Departing</label>
+<input id="datePicker" type="date" name="arrival"></input>
+<label>Arriving</label>
 <input id="datePicker" type="date" name="departs"></input>
 <button type="submit">Save</button>
 </form>

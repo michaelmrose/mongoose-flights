@@ -1,3 +1,4 @@
+const flight = require("../models/flight")
 const Flight = require("../models/flight")
 
 async function index(req,res){
@@ -11,7 +12,8 @@ async function createFlight(req,res){
     }
     try {
         const flight = await Flight.create(req.body)
-        req.body.flight
+        await flight.destinations.push({destAirport: req.body.destAirport, arrival: req.body.arrival})
+        await flight.save()
         res.redirect('flights')
     } catch(err){
         console.log(err.message)
