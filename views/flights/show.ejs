@@ -23,7 +23,12 @@
                 <option value="SAN">SAN</option>
         </select>
         <input type="date" name="arrival" value="<%=today%>"></input>
-        <button type="submit">Add</button>
+        <button type="submit">Add Stop</button>
     </form>
+    <p>
+        <a href="/flights/"><button>Back</button></a>
+        <a href="/flights/<%=id%>/tickets"><button>Tickets</button></a>
+        <a href="/flights/<%=id%>/tickets/new"><button class="defaultButton">Book</button></a>
+    </p>
 <%-include("../partials/footer.ejs")%>
 

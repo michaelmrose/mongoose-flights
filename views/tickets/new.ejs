@@ -1,2 +1,10 @@
 <%-include("../partials/header.ejs")%>
+<form method="POST" action="/flights/<%=id%>/tickets">
+    <label for="seatInput">Seat</label>
+    <input type="text" id="seatInput" 
+                name="seat" pattern="[A-F][1-9]\d?" placeholder="A1-F99"></input>
+    <label for="priceInput">Price</label>
+    <input type="number" min=0 id="priceInput" name="price" ></input>
+    <button class="defaultButton" ="submit">Save</button>
+</form>
 <%-include("../partials/footer.ejs")%>

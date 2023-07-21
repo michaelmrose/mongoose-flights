@@ -16,7 +16,8 @@ flight: {
 seat: {
     type: String,
     required:true,
-    match: /[A-F][1-9]\d?/
+    match: /[A-F][1-9]\d?/,
+    unique: true
 }
 
 })

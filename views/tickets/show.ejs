@@ -1,3 +1,11 @@
 <%-include("../partials/header.ejs")%>
+<ul>
+    <%tickets.forEach((ticket)=>{%>
+           <li> Seat: <%=ticket.seat%> : $<%=ticket.price.toFixed(2)%></li>
+    <%})%>
+</ul>
+<p>
+        <a href="/flights/<%=id%>"><button>Back</button></a>
+        <a href="/flights/<%=id%>/tickets/new"><button class="defaultButton">Book</button></a>
+</p>
 <%-include("../partials/footer.ejs")%>
-

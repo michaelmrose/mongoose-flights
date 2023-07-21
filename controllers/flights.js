@@ -2,7 +2,13 @@ const Flight = require("../models/flight")
 
 async function index(req,res){
     const flights = await Flight.find({})
-    res.render("flights/index", {title: "Flights", flights: flights})
+    res.render("flights/index", {title: "Flights", flights: flights, error: ''})
+}
+
+function humanizeErrorMessage (msg){
+    if (msg.match(/duplicate key error.*flightNo/))
+        return `Flight number already exists.`
+    else return msg
 }
 
 async function createFlight(req,res){
@@ -17,7 +23,7 @@ async function createFlight(req,res){
     } catch(err){
         console.log(err.message)
         res.render('flights/new', {
-            title: `Failed to Add a Flight: ${err.message}`, })
+            title: 'Flights', error:humanizeErrorMessage( err.message), today: today()})
     }
 }
 function today(){
@@ -25,11 +31,11 @@ function today(){
 }
 async function showFlight(req,res){
     const flight = await Flight.findById(req.params.id)
-    res.render("flights/show", {title: "Flight Details", flight: flight, id: req.params.id, today: today()})
+    res.render("flights/show", {title: "Flight Details", flight: flight, id: req.params.id, today: today(), error: ''})
 }
 
 function newFlight(req,res){
-    res.render("flights/new", {title: "Add Flight", today: today()})
+    res.render("flights/new", {title: "Add Flight", today: today(), error: ''})
 }
 
 async function addDestination(req,res){

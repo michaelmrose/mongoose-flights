@@ -35,3 +35,6 @@ button.defaultButton {
   color: white;
   background-color:blueviolet;
 }
+.errorMessage {
+  color: red;
+}
